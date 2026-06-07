@@ -19,10 +19,9 @@ Simple Python bot that types text like a human in Google Docs or any text field.
 ### Setup
 
 1. Put your text inside `essay.txt`
-2. Run:
-> python main.py
-3. You will get 5 seconds to open Google Docs or click any text box
-4. After 5 seconds bot starts typing automatically
+2. Run: `python main.py`
+1. You will get 5 seconds to open Google Docs or click any text box
+2. After 5 seconds bot starts typing automatically
 
 ### ESC Shortcut
 
@@ -87,39 +86,32 @@ Simple Python bot that types text like a human in Google Docs or any text field.
 
 ### Typo System
 
-Bot randomly:
-- types nearby keyboard keys
-- waits shortly
-- presses backspace
-- types correct character
+- Bot randomly types nearby keyboard keys
+- It randomly waits shortly
+- It randomly presses backspace
 
-Nearby keys are stored in:
+### Nearby Key Detection
 
-```python
-KEY_NEIGHBORS = {}
-```
+* Nearby keyboard keys are stored inside:
+  `KEY_NEIGHBORS = {}`
+
+* This is used for realistic typing mistakes by checking nearby keys on the keyboard.
 
 ### ESC Detection
 
-Inside main loop:
+* Inside the main loop:
+  `if keyboard.is_pressed("esc"):`
 
-```python
-if keyboard.is_pressed("esc"):
-```
-
-This allows instant stop while typing.
+* This allows the program to stop instantly when the `ESC` key is pressed.
 
 ### Editable Settings
 
-Inside `main.py`:
+* Inside `main.py` :&emsp;
+  `MIN_WPM, MAX_WPM = 40, 60`
+  `TYPO_CHANCE = 0.02`
+  `THINKING_PAUSE_CHANCE = 0.02`
 
-```python
-MIN_WPM, MAX_WPM = 40, 60
-TYPO_CHANCE = 0.02
-THINKING_PAUSE_CHANCE = 0.02
-```
-
-You can change typing speed and behaviour from here.
+* You can edit these values to change typing speed, typo frequency, and thinking pauses.
 
 <br>
 <br>
@@ -137,13 +129,13 @@ You can change typing speed and behaviour from here.
 
 ### Developer
 
-Made by Mantu Yadav
+Made by Nova
 
 ### Contact
 
-* Discord: `your_discord_id`
-* GitHub: `github.com/yourname`
-* Email: `youremail@gmail.com`
+* Discord: [`electro_blaz`](https://discord.com/users/342966677022965762)
+* GitHub: [`Kakashi21O`](https://github.com/Kakashi21O)
+* Email: [`kakashi7gamer@gmail.com`](mailto:kakashi7gamer@gmail.com)
 
 ### Other Projects
 

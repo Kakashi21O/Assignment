@@ -98,7 +98,7 @@ for ch in text:
     
     if ch.isalpha() and random.random() < TYPO_CHANCE:
 
-        #------ wrong funtioning logic
+        #            wrong funtioning logic start
         lower_ch = ch.lower()
 
         if lower_ch in KEY_NEIGHBORS:
@@ -111,7 +111,7 @@ for ch in text:
             wrong = random.choice(string.ascii_lowercase)
        
         pyautogui.write(wrong)
-        # ------
+        #           end
         
         time.sleep(random.uniform(
             base_delay * 0.8,
