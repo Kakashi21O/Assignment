@@ -18,8 +18,13 @@ time.sleep(5)
 
 typed_chars = 0
 
-for ch in text:
+# for delay in words
+current_word = ""
 
+for ch in text:
+    
+    
+    
     # Random WPM each character
     current_wpm = random.randint(MIN_WPM, MAX_WPM)
 
@@ -81,6 +86,25 @@ for ch in text:
     typed_chars += 1
     delay += typed_chars * 0.000002
 
+    # Track current word
+    if ch not in " \n\t":
+        current_word += ch
+    else:
+
+        # Pause after completing a word
+        if current_word:
+
+            word_length = len(current_word)
+
+            # Longer words = slightly longer pause
+            word_pause = random.uniform(
+                0.04,
+                0.12 + (word_length * 0.01)
+            )
+
+            delay += word_pause
+
+        current_word = ""
     time.sleep(delay)
 
 print("Finished typing.")
