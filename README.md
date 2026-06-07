@@ -14,14 +14,68 @@ Simple Python bot that types text like a human in Google Docs or any text field.
 <br>
 <br>
 
+## How To Run
+
+### 1 Clone The Repository
+
+- `git clone https://github.com/Kakashi21O/Assignment.git`
+
+
+### 2 Open Project Folder
+- `cd Assignment`
+
+### 3 Run The Code
+- `py main.py` &emsp;&emsp;&emsp;or&emsp;&emsp;&emsp; `python main.py` &emsp;&emsp;&emsp;or&emsp;&emsp;&emsp; `python3 main.py`
+
+<br>
+<br>
+
+### One Line Commands
+
+#### PowerShell / Git Bash / Linux / macOS
+- `git clone https://github.com/Kakashi21O/Assignment.git; cd Assignment; py main.py || python main.py || python3 main.py`
+
+
+#### Windows CMD
+- `git clone https://github.com/Kakashi21O/Assignment.git && cd Assignment && py main.py`
+
+<br>
+<br>
+
+### Common Errors
+
+1. Python Not Found
+
+- &emsp;[`Install Python`](https://www.python.org/downloads/) &emsp;&emsp;&emsp;&emsp; While installing, enable: `add Python to PATH`
+
+2. Git Not Found
+
+- &emsp;[`Install Git`](https://git-scm.com/downloads)
+
+3.  `requirements.txt` missing
+
+- &emsp; Check your folder path it should be like: ..\assignment 
+
+<br>
+<br>
+
+---
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 ## ✦ User Manual
 
 ### Setup
 
 1. Put your text inside `essay.txt`
 2. Run: `python main.py`
-1. You will get 5 seconds to open Google Docs or click any text box
-2. After 5 seconds bot starts typing automatically
+3. You will get 5 seconds to open Google Docs or click any text box
+4. After 5 seconds bot starts typing automatically
 
 ### ESC Shortcut
 
