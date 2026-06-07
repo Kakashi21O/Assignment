@@ -1,4 +1,32 @@
+import subprocess
+import sys
+import os
+
+# Auto install requirements if file exists
+if os.path.exists("requirements.txt"):
+
+    try:
+        print("Installing requirements...")
+
+        subprocess.check_call([
+            sys.executable,
+            "-m",
+            "pip",
+            "install",
+            "-r",
+            "requirements.txt"
+        ])
+
+    except Exception as e:
+        print("Failed to install requirements")
+        print(e)
+
+else:
+    print("requirements.txt not found, skipping install")
+
+
 import pyautogui
+import keyboard
 import random
 import string
 import time
@@ -18,13 +46,46 @@ time.sleep(5)
 
 typed_chars = 0
 
-# for delay in words
+#delay in words helping variable
 current_word = ""
+
+# Nearby keyboard keys
+KEY_NEIGHBORS = {
+    "a": "sqwz",
+    "b": "vghn",
+    "c": "xdfv",
+    "d": "serfcx",
+    "e": "wsdr",
+    "f": "drtgcv",
+    "g": "ftyhbv",
+    "h": "gyujnb",
+    "i": "ujko",
+    "j": "huikmn",
+    "k": "jiolm",
+    "l": "kop",
+    "m": "njk",
+    "n": "bhjm",
+    "o": "iklp",
+    "p": "ol",
+    "q": "wa",
+    "r": "edft",
+    "s": "awedxz",
+    "t": "rfgy",
+    "u": "yhji",
+    "v": "cfgb",
+    "w": "qase",
+    "x": "zsdc",
+    "y": "tghu",
+    "z": "asx"
+}
 
 for ch in text:
     
-    
-    
+    # Press ESC to stop
+    if keyboard.is_pressed("esc"):
+        print("Stopped by user.")
+        break
+
     # Random WPM each character
     current_wpm = random.randint(MIN_WPM, MAX_WPM)
 
@@ -37,10 +98,21 @@ for ch in text:
     
     if ch.isalpha() and random.random() < TYPO_CHANCE:
 
-        wrong = random.choice(string.ascii_lowercase)
+        #------ wrong funtioning logic
+        lower_ch = ch.lower()
 
+        if lower_ch in KEY_NEIGHBORS:
+            wrong = random.choice(KEY_NEIGHBORS[lower_ch])
+
+            # preserve uppercase
+            if ch.isupper():
+                wrong = wrong.upper()
+        else:
+            wrong = random.choice(string.ascii_lowercase)
+       
         pyautogui.write(wrong)
-
+        # ------
+        
         time.sleep(random.uniform(
             base_delay * 0.8,
             base_delay * 1.5
@@ -64,7 +136,6 @@ for ch in text:
         base_delay * 1.4
     )
 
-    
     # Word pauses
     
     if ch == " ":
