@@ -1,2 +1,80 @@
-# COPY PASTE YOUR TEXT HERE
-# REMOVE THIS WHOLE TEXT PLZ
+`git add .`: Add all files
+
+`git commit -m "Initial commit"`: Save changes
+
+`git branch -M main`: Rename branch to main
+
+`git remote add origin https://github.com/EletroGaming/devops-training.git`: Connect GitHub repo
+
+`git push -u origin main`: Upload files to GitHub
+
+# 6. Replace all "to" With Your Name
+
+
+Example:
+
+`to → Mantu`
+
+`git vim`: use ::%s/to/Mantu/g in it to Replace
+
+`git add .`: Add updated file
+
+`git commit -m "Replaced to with Mantu"`: Save changes
+
+`git push`: Upload changes
+
+# 7. Revert Changes
+
+
+`git log --oneline`: Show commit history
+
+`git revert COMMIT_ID`: Undo old commit
+
+`git push`: Upload reverted changes
+
+# 8. Create New Branch
+
+
+`git checkout -b new_branch`: Create and switch branch
+
+# 9. Replace "Torvalds" With Your Name
+
+
+Example:
+
+`Torvalds → Mantu`
+
+`git vim`: use :%s/Torvalds/Mantu Yadav/g in it to Replace
+
+`git add .`: Add changes
+
+`git commit -m "Changed Torvalds to Mantu Yadav"`: Save changes
+
+`git push -u origin new_branch`: Upload branch
+
+# 10. Create Pull Request
+
+
+* Open GitHub repository
+Create Pull Request
+Merge Pull Request
+
+
+# 11. Create Clone Folder
+
+
+`cd ~`: Go to home folder
+
+`mkdir git_clone_repo`: Create folder
+
+# 12. Clone Repository
+
+
+`cd git_clone_repo`: Open folder
+
+`git clone https://github.com/Kakashi21O/first_git.git`: Copy repository
+
+# 13. Repository URL
+
+
+`https://github.com/Kakashi21O/first_git`

@@ -1,28 +1,42 @@
 import subprocess
 import sys
-import os
+import importlib
 
-# Auto install requirements if file exists
-if os.path.exists("requirements.txt"):
+# Auto install modules
+modules = [
+    "pyautogui",
+    "keyboard"
+]
+
+for module in modules:
 
     try:
-        print("Installing requirements...")
+        importlib.import_module(module)
 
-        subprocess.check_call([
-            sys.executable,
-            "-m",
-            "pip",
-            "install",
-            "-r",
-            "requirements.txt"
-        ])
+    except ImportError:
 
-    except Exception as e:
-        print("Failed to install requirements")
-        print(e)
+        print(f"Installing {module}...")
 
-else:
-    print("requirements.txt not found, skipping install")
+        try:
+            subprocess.check_call([
+                sys.executable,
+                "-m",
+                "ensurepip",
+                "--upgrade"
+            ])
+
+            subprocess.check_call([
+                sys.executable,
+                "-m",
+                "pip",
+                "install",
+                module
+            ])
+
+        except Exception as e:
+            print(f"Failed installing {module}")
+            print(e)
+            sys.exit()
 
 
 import pyautogui
@@ -30,6 +44,18 @@ import keyboard
 import random
 import string
 import time
+
+pyautogui.FAILSAFE = True
+
+# ESC stop system
+stop_typing = False
+
+def stop():
+    global stop_typing
+    stop_typing = True
+    print("Stopped by user.")
+
+keyboard.add_hotkey("esc", stop)
 
 # SETTINGS
 
@@ -82,8 +108,7 @@ KEY_NEIGHBORS = {
 for ch in text:
     
     # Press ESC to stop
-    if keyboard.is_pressed("esc"):
-        print("Stopped by user.")
+    if stop_typing:
         break
 
     # Random WPM each character
@@ -135,7 +160,6 @@ for ch in text:
         base_delay * 0.8,
         base_delay * 1.4
     )
-
     # Word pauses
     
     if ch == " ":
